@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Test Page for Custom Bindings</title>
+    <script type="text/javascript" src="lib/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="lib/knockout-2.0.0.debug.js"></script>
+    <script type="text/javascript" src="src/ko.customBindings.js"></script>
+  </head>
+<body>
+<div id="main">
+    <fieldset>
+        <legend>Name</legend>
+        <div>
+            <label>First</label>
+        </div>
+        <div>
+            <input id="firstName" type="text" value="" data-bind="tvalue: firstName"/>
+        </div>
+        <div>
+            <label>Last</label>
+        </div>
+        <div>
+            <input id="lastName" type="text" value="" data-bind="tvalue: lastName"/>
+        </div>
+        <div>
+            <label>Age</label>
+        </div>
+        <div>
+            <input id="age" type="text" value="" />
+        </div>
+        <div>
+            <label>Salary</label>
+        </div>
+        <div>
+            <input id="sal" type="text" value="" data-bind="intValue: sal"/>
+        </div>
+    </fieldset>
+</div>
+<script type="text/javascript">
+    $(document).ready(function() {
+        vm = {
+           firstName: ko.observable('Homer'),
+           lastName: ko.observable('Simpson'),
+           age: ko.observable(43),
+           sal: ko.observable(55000)
+        };
+        ko.applyBindings(vm);
+    });
+</script>
+</body>
+</html>
